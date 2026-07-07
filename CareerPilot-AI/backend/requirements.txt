@@ -14,9 +14,7 @@ python-multipart>=0.0.9
 
 # AI / NLP
 google-generativeai>=0.7.0
-sentence-transformers>=3.0.0
 faiss-cpu>=1.7.0
-spacy>=3.7.0
 nltk>=3.8.0
 scikit-learn>=1.5.0
 
