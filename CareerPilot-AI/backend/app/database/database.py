@@ -2,11 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Hardcoded DB URL — update password here if changed
-_DB_URL = "postgresql://postgres:varsha2005@localhost:5432/careerpilot"
+from app.config import settings
 
 engine = create_engine(
-    _DB_URL,
+    settings.database_url,
     pool_pre_ping=True,
     pool_size=10,
     max_overflow=20,
