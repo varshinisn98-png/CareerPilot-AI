@@ -1,7 +1,7 @@
 import streamlit as st
 import httpx
 
-API_BASE = "http://localhost:8000/api"
+from utils.helpers import API_BASE
 
 SUGGESTED_QUESTIONS = [
     "What are my key strengths?",

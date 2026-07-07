@@ -2,7 +2,7 @@ import streamlit as st
 import httpx
 import json
 
-API_BASE = "http://localhost:8000/api"
+from utils.helpers import API_BASE
 
 
 from utils.helpers import get_headers
