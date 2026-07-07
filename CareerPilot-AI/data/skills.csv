@@ -1,0 +1,61 @@
+category,skill
+Programming Languages,Python
+Programming Languages,Java
+Programming Languages,JavaScript
+Programming Languages,TypeScript
+Programming Languages,C++
+Programming Languages,C#
+Programming Languages,Go
+Programming Languages,Rust
+Programming Languages,R
+Programming Languages,Kotlin
+Web Frameworks,FastAPI
+Web Frameworks,Django
+Web Frameworks,Flask
+Web Frameworks,React
+Web Frameworks,Angular
+Web Frameworks,Vue.js
+Web Frameworks,Node.js
+Web Frameworks,Express.js
+Web Frameworks,Spring Boot
+Databases,PostgreSQL
+Databases,MySQL
+Databases,MongoDB
+Databases,Redis
+Databases,SQLite
+Databases,Cassandra
+Databases,Elasticsearch
+DevOps & Cloud,Docker
+DevOps & Cloud,Kubernetes
+DevOps & Cloud,AWS
+DevOps & Cloud,GCP
+DevOps & Cloud,Azure
+DevOps & Cloud,CI/CD
+DevOps & Cloud,Terraform
+DevOps & Cloud,GitHub Actions
+Machine Learning,Scikit-learn
+Machine Learning,TensorFlow
+Machine Learning,PyTorch
+Machine Learning,Keras
+Machine Learning,XGBoost
+Machine Learning,Pandas
+Machine Learning,NumPy
+Machine Learning,Matplotlib
+NLP,spaCy
+NLP,NLTK
+NLP,Transformers
+NLP,Hugging Face
+NLP,BERT
+NLP,GPT
+Tools,Git
+Tools,Linux
+Tools,REST API
+Tools,GraphQL
+Tools,Postman
+Tools,Jupyter
+Tools,VS Code
+Soft Skills,Communication
+Soft Skills,Teamwork
+Soft Skills,Problem Solving
+Soft Skills,Leadership
+Soft Skills,Time Management

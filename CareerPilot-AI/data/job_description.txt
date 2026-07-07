@@ -1,0 +1,38 @@
+Job Title: Software Engineer – Backend (Python)
+Company: TechCorp Solutions
+Location: Remote / Hybrid
+
+About the Role:
+We are looking for a skilled Backend Software Engineer to join our growing team.
+You will design and build scalable REST APIs, work with cloud infrastructure,
+and collaborate with cross-functional teams to deliver impactful products.
+
+Responsibilities:
+- Design and develop high-performance RESTful APIs using Python and FastAPI
+- Manage relational databases (PostgreSQL) and write optimized SQL queries
+- Containerize services with Docker and deploy using Kubernetes
+- Implement CI/CD pipelines using GitHub Actions
+- Collaborate with frontend and ML teams on integration
+- Write unit and integration tests (pytest)
+- Participate in code reviews and architecture discussions
+
+Requirements:
+- 2+ years of Python development experience
+- Strong knowledge of FastAPI or Django/Flask
+- Experience with PostgreSQL and SQLAlchemy ORM
+- Proficiency with Docker and containerization
+- Familiarity with Git, GitHub, and version control workflows
+- Knowledge of REST API design principles
+- Understanding of basic Machine Learning concepts is a plus
+
+Nice to Have:
+- Experience with Kubernetes or cloud platforms (AWS/GCP/Azure)
+- Familiarity with message queues (Redis, RabbitMQ)
+- Knowledge of NLP or LLM integrations
+- Open-source contributions
+
+What We Offer:
+- Competitive salary + equity
+- Flexible remote-first culture
+- Learning & development budget
+- Health, dental, and vision benefits

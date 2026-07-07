@@ -1,0 +1,24 @@
+You are an ATS (Applicant Tracking System) expert and hiring manager.
+
+Analyze the following resume against the job description and provide a detailed ATS analysis.
+
+RESUME:
+{resume_text}
+
+JOB DESCRIPTION:
+{job_description}
+
+Provide your analysis in the following JSON format:
+{{
+  "ats_score": <number between 0 and 100>,
+  "jd_match_percent": <number between 0 and 100>,
+  "matching_keywords": ["list", "of", "matched", "keywords"],
+  "missing_keywords": ["list", "of", "important", "missing", "keywords"],
+  "extracted_skills": ["list", "of", "skills", "found", "in", "resume"],
+  "missing_skills": ["list", "of", "skills", "required", "but", "missing"],
+  "strengths": "What makes this resume strong for this role",
+  "weaknesses": "Where this resume falls short for this role",
+  "suggestions": "Specific suggestions to improve ATS score for this job"
+}}
+
+Be precise and base your scoring on keyword matching, skill relevance, and content quality.

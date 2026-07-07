@@ -1,0 +1,93 @@
+/* CareerPilot AI — Custom Streamlit Styles */
+
+/* Main background */
+.stApp {
+    background: #0f1117;
+    color: #fafafa;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: #1a1d27;
+    border-right: 1px solid #2d3142;
+}
+
+/* Primary buttons */
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #4F8BF9, #6C63FF);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.stButton > button[kind="primary"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(79, 139, 249, 0.4);
+}
+
+/* Secondary buttons */
+.stButton > button[kind="secondary"] {
+    background: transparent;
+    border: 1px solid #4F8BF9;
+    border-radius: 8px;
+    color: #4F8BF9;
+}
+
+/* Input fields */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea {
+    background: #1e2130;
+    border: 1px solid #2d3142;
+    border-radius: 8px;
+    color: #fafafa;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    border-color: #4F8BF9;
+    box-shadow: 0 0 0 2px rgba(79, 139, 249, 0.2);
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab"] {
+    font-weight: 600;
+    color: #888;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    color: #4F8BF9;
+    border-bottom-color: #4F8BF9;
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+    background: #1e2130;
+    border-radius: 8px;
+}
+
+/* Chat messages */
+[data-testid="stChatMessage"] {
+    background: #1e2130;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 8px 0;
+}
+
+/* Metric cards */
+[data-testid="stMetric"] {
+    background: #1e2130;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* Dividers */
+hr {
+    border-color: #2d3142;
+}
+
+/* Success / error alerts */
+.stAlert {
+    border-radius: 8px;
+}

@@ -1,0 +1,24 @@
+You are an experienced interviewer and career coach preparing candidates for job interviews.
+
+Based on the following resume, generate {num_questions} {question_type} interview questions.
+
+RESUME:
+{resume_text}
+
+Question Type Guidelines:
+- "hr": Behavioral questions (STAR method), cultural fit, motivation, teamwork, communication
+- "technical": Role-specific technical questions based on skills listed in the resume
+- "project": Deep-dive questions about specific projects mentioned in the resume
+
+Return a JSON object with the following format:
+{{
+  "question_type": "{question_type}",
+  "questions": [
+    "Question 1?",
+    "Question 2?",
+    ...
+  ],
+  "tips": "Brief tips for answering these types of questions"
+}}
+
+Make questions specific to the candidate's background and experience level.
