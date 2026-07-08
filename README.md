@@ -1,6 +1,8 @@
-# 🚀 CareerPilot AI
+# 🚀 CareerPilot AI: Smart Career Assistant
 
 An AI-powered career assistant that helps students and job seekers build ATS-friendly resumes, prepare for interviews, and get personalized career guidance.
+
+🔗 **Live Demo Link**: **[https://careerpilot-ai.onrender.com](https://careerpilot-ai.onrender.com)**
 
 ---
 
@@ -8,13 +10,14 @@ An AI-powered career assistant that helps students and job seekers build ATS-fri
 
 | Feature | Description |
 |---------|-------------|
-| 🎯 ATS Score | Resume scored against ATS criteria (0–100) |
-| 🛠️ Skill Extraction | NLP-powered skill detection from resume |
-| 💼 JD Matching | Resume vs Job Description similarity scoring |
-| 💬 AI Resume Chat | RAG-powered Q&A about your resume |
-| 🎤 Interview Prep | AI-generated HR, Technical, and Project questions |
+| 🎯 ATS Score | Resume scored against ATS criteria (0–100) with detailed qualitative tips |
+| 🛠️ Skill Extraction | AI-powered skill detection and action-verb quality analysis from resume |
+| 💼 JD Matching | Resume vs Job Description similarity scoring and gap suggestions |
+| 💬 AI Resume Chat | RAG-powered Q&A directly chatting with your resume contents |
+| 🎤 Interview Prep | AI-generated HR, Technical, and Project questions with grading |
 | 📝 Cover Letter | Personalized cover letters from resume + JD |
 | 📊 Dashboard | Visual summary of scores, skills, and suggestions |
+| ⚙️ Key Swapper | Change Gemini API keys dynamically inside the app UI |
 
 ---
 
@@ -22,29 +25,27 @@ An AI-powered career assistant that helps students and job seekers build ATS-fri
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | Streamlit |
-| Backend | FastAPI |
-| Database | PostgreSQL + SQLAlchemy |
-| Auth | JWT + Passlib (bcrypt) |
-| AI / LLM | Google Gemini API |
-| NLP | spaCy, NLTK, Scikit-learn |
-| Embeddings | Sentence Transformers (all-MiniLM-L6-v2) |
-| Vector DB | FAISS |
+| Frontend | Streamlit, HTTPX |
+| Backend | FastAPI, Uvicorn, Pydantic |
+| Database | PostgreSQL + SQLAlchemy (Render) |
+| Auth | JWT + native bcrypt |
+| AI / LLM | Google Gemini API (gemini-2.5-flash) |
+| Embeddings | Google Cloud Embeddings (text-embedding-004) |
+| Vector DB | FAISS (Fast Approximate Nearest Neighbor) |
 | PDF Parsing | PyMuPDF |
-| Deployment | Docker + Docker Compose |
+| Deployment | Docker + Render Cloud |
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Local Development)
 
 ### Prerequisites
 - Python 3.11+
-- PostgreSQL
 - Google Gemini API key
 
-### 1. Clone the repository
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourname/CareerPilot-AI.git
+git clone https://github.com/varshinisn98-png/CareerPilot-AI.git
 cd CareerPilot-AI
 ```
 
@@ -56,38 +57,28 @@ venv\Scripts\activate        # Windows
 # source venv/bin/activate   # Mac/Linux
 
 pip install -r requirements.txt
-python -m spacy download en_core_web_sm
 
 # Configure environment
-cp .env.example .env
-# Edit .env — add your GEMINI_API_KEY and DATABASE_URL
+# Create a .env file and add your GEMINI_API_KEY and DATABASE_URL
+# Example DATABASE_URL: sqlite:///./test.db
 
 # Start backend
 uvicorn app.main:app --reload --port 8000
 ```
 
 ### 3. Frontend Setup
+Open a new terminal window:
 ```bash
 cd frontend
-pip install streamlit httpx
+python -m venv venv
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # Mac/Linux
 
+pip install -r requirements.txt
+
+# Start frontend
 streamlit run app.py
 ```
-
-### 4. Docker Compose (Recommended)
-```bash
-# Set your Gemini API key
-set GEMINI_API_KEY=your-key-here    # Windows
-# export GEMINI_API_KEY=your-key    # Mac/Linux
-
-docker-compose up --build
-```
-
-| Service | URL |
-|---------|-----|
-| Frontend | http://localhost:8501 |
-| Backend API | http://localhost:8000 |
-| API Docs | http://localhost:8000/docs |
 
 ---
 
@@ -109,9 +100,9 @@ CareerPilot-AI/
 │   ├── vector_db/
 │   └── requirements.txt
 ├── frontend/
-│   ├── pages/             # Streamlit pages
 │   ├── components/        # Reusable UI components
-│   ├── assets/            # CSS, logo
+│   ├── utils/             # Helpers
+│   ├── views/             # Screen pages
 │   └── app.py
 ├── tests/
 ├── data/
@@ -125,28 +116,9 @@ CareerPilot-AI/
 
 ```bash
 cd backend
-pytest tests/ -v
+venv\Scripts\activate
+pytest ../tests -v
 ```
-
----
-
-## 📖 API Documentation
-
-Full API reference: [docs/api_documentation.md](docs/api_documentation.md)
-
-Interactive Swagger UI: http://localhost:8000/docs
-
----
-
-## 🔑 Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `DATABASE_URL` | PostgreSQL connection string | ✅ |
-| `SECRET_KEY` | JWT signing secret | ✅ |
-| `GEMINI_API_KEY` | Google Gemini API key | ✅ |
-| `ALGORITHM` | JWT algorithm (default: HS256) | ❌ |
-| `ACCESS_TOKEN_EXPIRE_MINUTES` | Token expiry (default: 60) | ❌ |
 
 ---
 
