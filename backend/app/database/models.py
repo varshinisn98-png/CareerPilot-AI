@@ -30,6 +30,9 @@ class Resume(Base):
 
     owner = relationship("User", back_populates="resumes")
     analysis = relationship("ResumeAnalysis", back_populates="resume", uselist=False, cascade="all, delete")
+    interview_sessions = relationship("InterviewSession", cascade="all, delete")
+    cover_letters = relationship("CoverLetter", cascade="all, delete")
+    chat_histories = relationship("ChatHistory", cascade="all, delete")
 
 
 class ResumeAnalysis(Base):

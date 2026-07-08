@@ -62,15 +62,24 @@ def show():
                         st.success(f"Active resume: {r['filename']}")
                 with col3:
                     if st.button("Delete", key=f"del_{r['id']}"):
-                        del_res = httpx.delete(
-                            f"{API_BASE}/resume/{r['id']}", headers=_headers(), timeout=10
-                        )
-                        if del_res.status_code == 204:
-                            st.success("Resume deleted.")
-                            r2 = httpx.get(f"{API_BASE}/resume/history", headers=_headers(), timeout=10)
-                            if r2.status_code == 200:
-                                st.session_state["resumes"] = r2.json()
-                            st.rerun()
+                        with st.spinner("Deleting resume..."):
+                            del_res = httpx.delete(
+                                f"{API_BASE}/resume/{r['id']}", headers=_headers(), timeout=10
+                            )
+                            if del_res.status_code == 204:
+                                st.success("Resume deleted.")
+                                if st.session_state.get("current_resume_id") == r["id"]:
+                                    st.session_state["current_resume_id"] = None
+                                r2 = httpx.get(f"{API_BASE}/resume/history", headers=_headers(), timeout=10)
+                                if r2.status_code == 200:
+                                    st.session_state["resumes"] = r2.json()
+                                st.rerun()
+                            else:
+                                try:
+                                    detail = del_res.json().get("detail", "Failed to delete resume.")
+                                except Exception:
+                                    detail = "Failed to delete resume."
+                                st.error(detail)
         else:
             st.info("No resumes uploaded yet.")
 
