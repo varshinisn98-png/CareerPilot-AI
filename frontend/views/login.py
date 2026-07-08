@@ -19,12 +19,12 @@ def show():
             if not email or not password:
                 st.error("Please fill in all fields.")
             else:
-                with st.spinner("Signing in..."):
+                with st.spinner("Signing in... (The server may take up to 1 minute to wake up on first load)"):
                     try:
                         res = httpx.post(
                             f"{API_BASE}/auth/login",
                             json={"email": email, "password": password},
-                            timeout=10,
+                            timeout=60,
                         )
                         if res.status_code == 200:
                             data = res.json()
@@ -34,7 +34,7 @@ def show():
                             profile_res = httpx.get(
                                 f"{API_BASE}/user/me",
                                 headers={"Authorization": f"Bearer {data['access_token']}"},
-                                timeout=10,
+                                timeout=60,
                             )
                             if profile_res.status_code == 200:
                                 st.session_state["user"] = profile_res.json()
@@ -43,7 +43,7 @@ def show():
                             resume_res = httpx.get(
                                 f"{API_BASE}/resume/history",
                                 headers={"Authorization": f"Bearer {data['access_token']}"},
-                                timeout=10,
+                                timeout=60,
                             )
                             if resume_res.status_code == 200:
                                 resumes = resume_res.json()
@@ -58,6 +58,8 @@ def show():
                             st.error(res.json().get("detail", "Login failed."))
                     except httpx.ConnectError:
                         st.error("Cannot connect to backend. Make sure the server is running.")
+                    except httpx.TimeoutException:
+                        st.error("⏰ The server is taking a moment to wake up (Render cold start). Please wait a few seconds and try clicking 'Sign In' again!")
 
         st.markdown("---")
         st.markdown("Don't have an account?")

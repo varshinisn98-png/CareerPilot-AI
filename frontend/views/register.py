@@ -25,12 +25,12 @@ def show():
             elif len(password) < 8:
                 st.error("Password must be at least 8 characters.")
             else:
-                with st.spinner("Creating your account..."):
+                with st.spinner("Creating your account... (The server may take up to 1 minute to wake up on first load)"):
                     try:
                         res = httpx.post(
                             f"{API_BASE}/auth/register",
                             json={"full_name": full_name, "email": email, "password": password},
-                            timeout=10,
+                            timeout=60,
                         )
                         if res.status_code == 201:
                             st.success("Account created! Please sign in.")
@@ -43,7 +43,9 @@ def show():
                                 detail = f"Server error (status {res.status_code}): {res.text[:300]}"
                             st.error(detail)
                     except httpx.ConnectError:
-                        st.error("Cannot connect to backend. Make sure uvicorn is running on port 8000.")
+                        st.error("Cannot connect to backend. Make sure the server is running.")
+                    except httpx.TimeoutException:
+                        st.error("⏰ The server is taking a moment to wake up (Render cold start). Please wait a few seconds and try clicking 'Create Account' again!")
 
         st.markdown("---")
         st.markdown("Already have an account?")
