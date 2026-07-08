@@ -2,7 +2,7 @@
 
 An AI-powered career assistant that helps students and job seekers build ATS-friendly resumes, prepare for interviews, and get personalized career guidance.
 
-🔗 **Live Demo Link**: **[https://careerpilot-ai.onrender.com](https://careerpilot-ai.onrender.com)**
+🔗 **Live Demo Link**: **[https://careerpilot-frontend-t0et.onrender.com](https://careerpilot-frontend-t0et.onrender.com)**
 
 ---
 
