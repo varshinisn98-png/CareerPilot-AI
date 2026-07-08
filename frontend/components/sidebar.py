@@ -45,10 +45,13 @@ def render_sidebar():
                         default_index = idx
                         break
 
+            # Use dynamic key based on resume IDs to prevent Streamlit cache out-of-bounds crash on deletion
+            selectbox_key = f"active_res_{'_'.join(str(r['id']) for r in resumes)}"
             selected = st.selectbox(
                 "Active Resume",
                 list(options.keys()),
                 index=default_index,
+                key=selectbox_key,
                 label_visibility="collapsed",
             )
             if selected:
