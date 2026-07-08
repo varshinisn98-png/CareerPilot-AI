@@ -34,7 +34,8 @@ def render_sidebar():
         resumes = st.session_state.get("resumes", [])
         if resumes:
             st.markdown("**Select Resume**")
-            options = {r["filename"]: r["id"] for r in resumes}
+            # Format options with IDs to ensure unique keys in case of duplicate filenames
+            options = {f"{r['filename']} (#{r['id']})": r["id"] for r in resumes}
             
             # Synchronize index based on current_resume_id
             current_resume_id = st.session_state.get("current_resume_id")
@@ -44,6 +45,10 @@ def render_sidebar():
                     if r["id"] == current_resume_id:
                         default_index = idx
                         break
+
+            # Extra safety bounds check
+            if default_index >= len(options):
+                default_index = 0
 
             # Use dynamic key based on resume IDs to prevent Streamlit cache out-of-bounds crash on deletion
             selectbox_key = f"active_res_{'_'.join(str(r['id']) for r in resumes)}"
